@@ -1,4 +1,8 @@
 #!/bin/bash
-systemctl status httpd
-sudo systemctl stop httpd
-ps aux | grep httpd
+SERVICE="httpd"
+if pgrep -x "$SERVICE" >/dev/null
+then
+    systemctl stop httpd
+else
+    echo "$SERVICE stopped"
+fi
