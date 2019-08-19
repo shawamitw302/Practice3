@@ -4,9 +4,7 @@ if pgrep -x "$SERVICE" >/dev/null
 then
     systemctl stop httpd
     sleep 30s
-elif pgrep -x "$SERVICE" >/dev/null    
-then
-    pgrep -x "$SERVICE" | sudo xargs kill
 else
+    pgrep -x "$SERVICE" | sudo xargs kill
     echo "$SERVICE stopped"
 fi
