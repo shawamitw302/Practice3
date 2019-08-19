@@ -1,10 +1,13 @@
 #!/bin/bash
 SERVICE="httpd"
-if pgrep -x "$SERVICE" >/dev/null
+systemctl stop "$SERVICE"
+OUT=$?
+if [ $OUT -eq 0 ];
 then
-    systemctl stop httpd
-    sleep 30s
+    echo "$SERVICE stopped"
 else
     pgrep -x "$SERVICE" | sudo xargs kill
-    echo "$SERVICE stopped"
+    pgrep -x "$SERVICE"
+    OUT=$?
+    echo "$OUT"
 fi
