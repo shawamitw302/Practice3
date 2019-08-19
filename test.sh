@@ -6,7 +6,7 @@ then
     sleep 30s
 elif pgrep -x "$SERVICE" >/dev/null    
 then
-    sudo pgrep -x "$SERVICE" | xargs kill -9
+    sudo pgrep -x "$SERVICE" | xargs kill
 else
     echo "$SERVICE stopped"
 fi
