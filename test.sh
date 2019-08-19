@@ -2,7 +2,11 @@
 SERVICE="httpd"
 if pgrep -x "$SERVICE" >/dev/null
 then
-    sudo systemctl stop httpd
+    systemctl stop httpd
+    sleep 30s
+elif pgrep -x "$SERVICE" >/dev/null    
+then
+    sudo pgrep -x "$SERVICE" | xargs kill -9
 else
     echo "$SERVICE stopped"
 fi
