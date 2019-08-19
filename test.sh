@@ -1,4 +1,4 @@
 #!/bin/bash
 systemctl status httpd
-systemctl stop httpd.service
+sudo systemctl stop httpd
 systemctl status httpd
